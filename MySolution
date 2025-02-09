@@ -1,0 +1,47 @@
+class Solution(object):
+    def countBadPairs(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        '''badCaseOne = i < j
+        badCaseTwo = j - 1
+        badCaseThree = nums[j] - nums[i]'''
+
+        badPairCount = 0
+
+        indexOne = 0
+        indexTwo = 0
+
+        for entry in nums:
+
+            for entry in nums:
+
+                #print(indexOne, indexTwo, badPairCount)
+                #print (nums[indexOne], nums[indexTwo], badPairCount)
+
+                if indexTwo < len(nums):
+                    badCaseOne = indexOne < indexTwo
+                    badCaseTwo = indexTwo - indexOne
+                    badCaseThree = nums[indexTwo] - nums[indexOne]
+                else:
+                    break
+
+                if (badCaseOne and (badCaseTwo != badCaseThree)):
+                    badPairCount += 1
+                else:
+                    pass
+                
+                #print(indexOne, indexTwo, badPairCount)
+
+                indexTwo+=1
+
+            indexOne+=1
+            indexTwo = indexOne
+
+            #print(indexOne, indexTwo, badPairCount)
+
+        return badPairCount
+            
+        
